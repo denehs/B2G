@@ -313,13 +313,13 @@ check_xcode() {
       osx_106_sdk=/Developer/SDKs/MacOSX10.6.sdk
       osx_sdk=$osx_106_sdk
     else
-      xcode_dev_path=`xcode-select --print-path`
-      xcode_path=${xcode_dev_path%/Contents/Developer}
+      xcode_path=`xcode-select --print-path`
+      xcode_dev_path=${xcode_path}/Contents/Developer
       osx_106_sdk=$xcode_dev_path/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.6.sdk
       osx_107_sdk=$xcode_dev_path/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk
       osx_108_sdk=$xcode_dev_path/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk
     fi
-        
+
     test -d $osx_106_sdk
     if [ $? -ne 0 ] ; then
         if [ "$option_auto_install" = "no" ]; then
